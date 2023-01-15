@@ -187,7 +187,7 @@ const workHistory = [
 const years = computed(() => new Date().getFullYear() - 2015)
 </script>
 <template>
-  <div class="p-8 bg-zinc-700 text-white">
+  <div class="p-8 bg-zinc-700 text-white border-[6px] rounded-3xl border-[#5e5e67]">
     <div class="flex sm:flex-row flex-col xs:flex-nowrap items-center mb-16">
       <img class="shadow-lg inline-block rounded-full sm:w-40 w-20 mr-4" src="/image.png">
       <div>
