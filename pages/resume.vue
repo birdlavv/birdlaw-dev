@@ -155,7 +155,7 @@ const workHistory = [
         title: 'White-label UI',
         roles: ['Full-Stack Engineer'],
         tools: ['Typescript'],
-        description: ['I created a white-label component library so developers/agencies could securely style all components across their sub-merchant UIs. This pattern used CSS as a compile target and a flavor of TailwindCSS as the sandbox. This allowed for stylesheets to be dynamically generated (>200ms) and stored for fast static serving. This sandbox allowed every component to be customized and branded by untrusted third parties without requiring human review. If I were to reimplement this today, I would opt for a strict Content-Security-Policy header now that they are better respected by browsers and that executable JS-in-CSS loopholes have faded.']
+        description: ['I created a white-label component library so developers/agencies could securely style all components across their sub-merchant UIs. This pattern used CSS as a compile target and a flavor of TailwindCSS as the sandbox. This allowed for stylesheets to be dynamically generated (>200ms) and stored for fast static serving. This sandbox allowed every component to be customized and branded by untrusted third parties without requiring human review. If I were to reimplement this today, I would opt for a freeform stylesheet field combined with a strict Content-Security-Policy header now that they are better respected by browsers and that executable JS-in-CSS loopholes have faded.']
       },
       {
         title: 'Embedded Linux Thermal Printer',
