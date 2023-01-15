@@ -187,57 +187,58 @@ const workHistory = [
 const years = computed(() => new Date().getFullYear() - 2015)
 </script>
 <template>
-  <div class="p-8 bg-zinc-700 text-white border-[6px] rounded-3xl border-[#5e5e67]">
-    <div class="flex sm:flex-row flex-col xs:flex-nowrap items-center mb-16">
-      <img class="shadow-lg inline-block rounded-full sm:w-40 w-20 mr-4" src="/image.png">
-      <div>
-        <div class="text-2xl font-bold">
-          Alex Fong
-        </div>
-        <div class="mb-4">Fullstack software engineer with deep experience with Nuxt.js, Vue.js, Typescript, and designing scalable systems from scratch.</div>
-        
-        <div class="flex items-center">
-          <Icon name="mdi:map-marker" class="mr-2" />
-          <div>Greater Madison Area, Wisconsin, USA</div>
-        </div>
-        <div class="flex items-center">
-          <Icon name="mdi:timer-sand-complete" class="mr-2" />
-          <div>{{ years }} years of experience</div>
-        </div>
-        <div class="flex items-center">
-          <Icon name="mdi:email" class="mr-2" />
-          <a class="text-blue-400 underline" href="mailto:alex@birdlaw.dev">alex@birdlaw.dev</a>
-        </div>
-        <div class="flex items-center">
-          <Icon name="mdi:github" class="mr-2" />
-          <a class="text-blue-400 underline" href="https://github.com/birdlavv">https://github.com/birdlavv</a>
-        </div>
-      </div>
-    </div>
-    <div class="grid grid-cols-3">
-      <div class="lg:col-span-2 col-span-3">
-        <Chip size="regular" class="bg-zinc-600 mb-4">Work history</Chip>
-        <div v-for="job in workHistory" class="mb-24">
-          <div class="opacity-50 font-bold mb-4">{{ job.companyName }},  {{ job.title }}</div>
-          <div v-for="project in job.projects" class="mb-16 ml-8">
-            <div class="text-2xl font-bold mb-2">{{ project.title }}</div>
-            <div class="mb-2">
-              <Chip size="small" class="bg-indigo-600 mr-1 mb-1" v-for="role in project.roles">{{ role }}</Chip>
-              <Chip size="small" v-for="tool in project.tools" class="mr-1 mb-1 bg-zinc-800">
-                {{ tool }}
-              </Chip>
-            </div>
-            <div v-for="chunk in project.description" class="lg:mr-16 mb-4">{{ chunk }}</div>
+  <div class="flex justify-center">
+    <div class="max-w-[80rem] w-full p-8 bg-zinc-700 text-white border-[6px] rounded-3xl border-[#5e5e67]">
+      <div class="flex sm:flex-row flex-col xs:flex-nowrap items-center mb-16">
+        <img class="shadow-lg inline-block rounded-full sm:w-40 w-20 sm:mr-4" src="/image.png">
+        <div>
+          <div class="text-2xl font-bold text-center sm:text-left mb-4">
+            Alex Fong
+          </div>
+          <div class="mb-4 max-w-[28rem]">Fullstack software engineer with deep experience with Nuxt.js, Vue.js, Typescript, and designing scalable systems from scratch.</div>
+          <div class="flex items-center">
+            <Icon name="mdi:map-marker" class="mr-2" />
+            <div>Greater Madison Area, Wisconsin, USA</div>
+          </div>
+          <div class="flex items-center">
+            <Icon name="mdi:timer-sand-complete" class="mr-2" />
+            <div>{{ years }} years of experience</div>
+          </div>
+          <div class="flex items-center">
+            <Icon name="mdi:email" class="mr-2" />
+            <a class="text-blue-400 underline" href="mailto:alex@birdlaw.dev">alex@birdlaw.dev</a>
+          </div>
+          <div class="flex items-center">
+            <Icon name="mdi:github" class="mr-2" />
+            <a class="text-blue-400 underline" href="https://github.com/birdlavv">https://github.com/birdlavv</a>
           </div>
         </div>
       </div>
-      <div class="lg:col-span-1 col-span-3">
-        <Chip size="regular" class="bg-zinc-600 mb-4">Skills</Chip>
-        <div v-for="skillList in skillLists" class="mb-4">
-          <div class="opacity-50 font-bold">{{ skillList.listTitle }}</div>
-          <Chip size="regular" v-for="skill in skillList.listItems" class="mr-1 mb-1 bg-zinc-800">
-            {{ skill }}
-          </Chip>
+      <div class="grid grid-cols-3">
+        <div class="lg:col-span-2 col-span-3">
+          <Chip size="regular" class="bg-zinc-600 mb-4">Work history</Chip>
+          <div v-for="job in workHistory" class="mb-24">
+            <div class="opacity-50 font-bold mb-4">{{ job.companyName }},  {{ job.title }}</div>
+            <div v-for="project in job.projects" class="mb-16 ml-8">
+              <div class="text-2xl font-bold mb-2">{{ project.title }}</div>
+              <div class="mb-2">
+                <Chip size="small" class="bg-indigo-600 mr-1 mb-1" v-for="role in project.roles">{{ role }}</Chip>
+                <Chip size="small" v-for="tool in project.tools" class="mr-1 mb-1 bg-zinc-800">
+                  {{ tool }}
+                </Chip>
+              </div>
+              <div v-for="chunk in project.description" class="lg:mr-16 mb-4">{{ chunk }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-1 col-span-3">
+          <Chip size="regular" class="bg-zinc-600 mb-4">Skills</Chip>
+          <div v-for="skillList in skillLists" class="mb-4">
+            <div class="opacity-50 font-bold">{{ skillList.listTitle }}</div>
+            <Chip size="regular" v-for="skill in skillList.listItems" class="mr-1 mb-1 bg-zinc-800">
+              {{ skill }}
+            </Chip>
+          </div>
         </div>
       </div>
     </div>
