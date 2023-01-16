@@ -17,6 +17,7 @@ const skillLists = [
       'Prototyping',
       'MPA',
       'SPA',
+      'Jamstack',
       'Serverless',
       'Web Services',
       'Data Extraction',
