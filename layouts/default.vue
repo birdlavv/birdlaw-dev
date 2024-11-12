@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 bg-zinc-800 font-[Inter]">
+  <div class="py-8 font-[Inter]">
     <slot/>
   </div>
 </template>
