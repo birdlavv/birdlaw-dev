@@ -187,22 +187,22 @@ const workHistory = [
         description: ['I created a white-label component library so developers/agencies could securely style all components across their sub-merchant UIs. This pattern used CSS as a compile target and a flavor of TailwindCSS as the sandbox. This allowed for stylesheets to be dynamically generated (>200ms) and stored for fast static serving. This sandbox allowed every component to be customized and branded by untrusted third parties without requiring human review. If I were to reimplement this today, I would opt for a freeform stylesheet field combined with a strict Content-Security-Policy header now that they are better respected by browsers and that executable JS-in-CSS loopholes have faded.']
       },
       {
-        projectName: 'Embedded Linux Thermal Printer',
+        projectName: 'Embedded Linux thermal printer',
         tools: ['TypeScript', 'Linux', 'Serverless'],
         description: ['I created an embedded Linux thermal printer to print restaurant tickets. The printer securely accepted sensitive data from our serverless cloud environment. Because thermal paper only has two colors, black and white, but no grayscale, images had to be fed through a dithering algorithm to allow for display on thermal paper. I succeeded in creating a microservice that dynamically resized and dithered all dynamic image data in the resource-constrained serverless environment. I then implemented this again in the browser environment providing a live dithered preview using HTML Canvas and the browser’s MediaDevices API to access the webcam. Print job authentication was done using asymmetric keys because the devices were in untrusted/hostile environments. I wrote the printer firmware and the cloud printing microservice in TypeScript.']
       },
       {
-        projectName: 'Reservation Microservice',
+        projectName: 'Reservation microservice',
         tools: ['TypeScript', 'SQL', 'Serverless'],
         description: ['I made a reservation engine that took in a schedule and seating capacity parameters and would generate valid timeslots.', 'If the schedule or capacity changed, the already-booked timeslots would be grandfathered in, and new timeslots would be regenerated around the new schedule, capacity, and pre-booked timeslots.', 'Though this was challenging, I’m very happy with how this project turned out. It works across timezones, is immune to Daylight Savings Time, works in a resource-constrained serverless environment, and is very fast.']
       },
       {
-        projectName: 'Restaurant Dashboard',
+        projectName: 'Restaurant dashboard',
         tools: ['Tailwind CSS', 'Nuxt', 'TRPC', 'Vue', 'MySQL'],
         description: ['I built a self-serve dashboard for restaurant managers to manage their ordering settings, schedule, and menu. The most challenging part of this project was building out the menu editor. The menu editor allowed owners to manage highly nested item modifiers, modifier options, and menu sections. The most difficult part was dialing in the UX so that it would be intuitive for restaurant owners to manipulate the highly nested data. Once the dust had settled, the UX was similar to that of a WYSIWYG editor that used page routes to express depth and had autocomplete to allow owners to share/inherit modifiers between items.']
       },
       {
-        projectName: 'Restaurant Ordering Flow',
+        projectName: 'Restaurant ordering flow',
         tools: ['TypeScript', 'Vue', 'Nuxt'],
         description: ['I worked on a server-side-rendered (SSR) restaurant menu, bag, and checkout flow. This project was a ground-up rewrite using the newly betaed Nuxt 3. All the menus and merchant data were sourced from our internal menu dashboard service or external 3rd party menu partner APIs. The project allowed multiple payment processors and needed a fully brandable UI that merchants could style. Merchants could set a unique branded link path that automatically leads to their menu.']
       },
@@ -249,11 +249,11 @@ const years = computed(() => new Date().getFullYear() - 2015)
             Below is a non-exhaustive list of some of the notable projects I've worked on.
             Each project description includes some technical decisions I made during the design and development process.
           </div>
-          <UBadge variant="subtle" class="bg-zinc-600 mb-4">Work history</UBadge>
+          <div class="font-bold text-4xl mb-6">Work history</div>
           <div v-for="job in workHistory" class="mb-16">
             <Chip size="small" class="bg-indigo-600 mb-2">{{ job.role }}</Chip>
             <div class="text-2xl font-bold mb-4">{{ job.companyName }}</div>
-            <div class="mb-6 border-white rounded border p-6 mr-6">
+            <div class="mb-6 border-white rounded-lg border p-6 mr-6">
               <Chip size="small" class="bg-indigo-600 mb-2">Highlights</Chip>
               <ul class="list-disc pl-4 mb-4">
                 <li v-for="item of job.tldr">{{ item }}</li>
@@ -281,7 +281,6 @@ const years = computed(() => new Date().getFullYear() - 2015)
           </div>
         </div>
         <div class="lg:col-span-1 col-span-3">
-          <UBadge variant="subtle" class="bg-zinc-600 mb-4">Skills</UBadge>
           <div v-for="skillList in skillLists" class="mb-4">
             <div class="opacity-50 font-bold mb-2 text-sm">{{ skillList.listTitle }}</div>
             <Chip size="regular" v-for="skill in skillList.listItems" class="mr-1 mb-1 bg-zinc-800">
