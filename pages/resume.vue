@@ -154,16 +154,18 @@ const workHistory = [
     ]
   },
   {
-    companyName: 'Cheetah Booking (2023 - 2024) (Co-founded)',
+    companyName: 'CheetahBooking (2023 - 2024) (Co-founded)',
     role: 'Chief Technology Officer (CTO)',
     tldr: [
-      'Built a B2B SaaS on a very tiny budget',
+      'Built a B2B SaaS MVP on a very tiny budget',
       'Built an automated scheduling engine',
       'Built a very intuitive form builder',
+      'Implemented our CI/CD pipeline with E2E test coverage',
+      'Converted Figma designs into a pixel-perfect functional application',
     ],
     projects: [
       {
-        projectName: 'SaaS & Scheduling engine',
+        projectName: 'SaaS MVP & Scheduling engine',
         tools: ['TypeScript', 'MySQL', 'Nuxt'],
         description: ['The software enabled business owners to sign up and create lead forms, booking forms, and appointment forms. It had payments and automatic scheduling out-of-the-box. The forms were generated and rendered at runtime based on the data points the business wanted to collect for each booking. After a booking was made, it was automatically added to the business\'s schedule. Timeslots were offered and consumed based on the SQL-backed scheduler I had built. The scheduler would offer timeslots based on discovered availability between the already booked appointments. My experience building the scheduling engine at OrderDive helped me avoid many common pitfalls when dealing with time.']
       },
