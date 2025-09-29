@@ -69,6 +69,7 @@ const skillLists = [
       'Vue',
       'NuxtUI',
       'Tauri (iOS, Android, & Desktop targets)',
+      'React Native',
       'DaisyUI',
       'Oruga',
       'Vuetify',
