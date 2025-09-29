@@ -9,8 +9,8 @@ const skillLists = [
       'Systems Architecture',
       'Cloud Architecture',
       'Design Systems',
-      'Embedded Systems',
       'Building Mobile Apps (iOS & Android)',
+      'Embedded Systems',
       'Building Desktop Apps',
       'IoT',
       'Microservices',
@@ -67,6 +67,8 @@ const skillLists = [
     listItems: [
       'Tailwind CSS',
       'Vue',
+      'NuxtUI',
+      'Tauri (iOS, Android, & Desktop targets)',
       'DaisyUI',
       'Oruga',
       'Vuetify',
@@ -75,7 +77,6 @@ const skillLists = [
       'SCSS',
       'UnoCSS',
       'Bulma',
-      'NuxtUI',
     ],
   },
   {
@@ -99,6 +100,7 @@ const skillLists = [
     listItems: [
       'TypeScript',
       'JavaScript',
+      'Rust',
       'Python',
       'HTML',
       'SQL',
@@ -127,7 +129,7 @@ const skillLists = [
 ]
 const workHistory = [
   {
-    companyName: 'InternalStack (2024 - Present)',
+    companyName: 'InternalStack (2024 - Present) (Spinoff project from OrderDive)',
     role: 'Software Engineer',
     tldr: [
       'Built a DX-focused SDK in TypeScript',
@@ -206,7 +208,7 @@ const workHistory = [
       {
         projectName: 'Restaurant ordering flow',
         tools: ['TypeScript', 'Vue', 'Nuxt'],
-        description: ['I worked on a server-side-rendered (SSR) restaurant menu, bag, and checkout flow. This project was a ground-up rewrite using the newly betaed Nuxt 3. All the menus and merchant data were sourced from our internal menu dashboard service or external 3rd party menu partner APIs. The project allowed multiple payment processors and needed a fully brandable UI that merchants could style. Merchants could set a unique branded link path that automatically leads to their menu.']
+        description: ['I worked on a server-side-rendered (SSR) restaurant menu, bag, and checkout flow. This project was a ground-up rewrite using the newly betaed (at the time) Nuxt 3. All the menus and merchant data were sourced from our internal menu dashboard service or external 3rd party menu partner APIs. The project allowed multiple payment processors and needed a fully brandable UI that merchants could style. Merchants could set a unique branded link path that automatically leads to their menu.']
       },
     ]
   }
