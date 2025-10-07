@@ -99,6 +99,7 @@ const skillLists = [
       'Python',
       'HTML',
       'SQL',
+      'Golang',
       'YAML',
       'XML',
     ],
@@ -207,6 +208,7 @@ const workHistory = [
       'Created a reservation microservice with dynamic schedule capacity and daylight-savings immunity',
       'Created a restaurant owner dashboard and menu editor',
       'Created the customer facing restaurant online ordering flow',
+      'Created AI/LLM-powered tools to help business owners to generate marketing copy'
     ],
     projects: [
       {
@@ -246,6 +248,15 @@ const workHistory = [
           'I worked on a server-side-rendered (SSR) restaurant menu, bag, and checkout flow. This project was a ground-up rewrite using the newly betaed (at the time) Nuxt 3. All the menus and merchant data were sourced from our internal menu dashboard service or external 3rd party menu partner APIs. The project allowed multiple payment processors and needed a fully brandable UI that merchants could style. Merchants could set a unique branded link path that automatically leads to their menu.',
         ],
       },
+    ],
+  },
+  {
+    companyName: 'Personal projects',
+    role: 'Software Engineer',
+    tldr: [
+      'Created & published an app built with React Native for cosplayers to trigger sound effects usings a concealed bluetooth device',
+      'Created a desktop app (Linux, Windows, & Macos) and self-hostable server for syncing emulated retro game save files across devices (Looking to open source it soon)',
+      'Created a system tray utility app in Golang (Go) for Macos to quickly find the server process that is blocking my development server port. The program finds the clogged port and kills the parent process.'
     ],
   },
 ]
