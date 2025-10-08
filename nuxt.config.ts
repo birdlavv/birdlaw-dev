@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui', '@nuxtjs/tailwindcss'],
-  extends: ['@nuxt/ui-pro'],
-  compatibilityDate: '2024-10-15',
+  modules: ['@nuxt/ui'],
+  css: ['~/assets/css/main.css'],
+  compatibilityDate: '2025-10-05',
   colorMode: {
     preference: 'dark',
   },
