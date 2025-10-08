@@ -21,8 +21,8 @@
             Landing pages
           </div>
         </template>
-        <div class="mb-4"><ULink href="https://orderdive.com">https://orderdive.com</ULink></div>
-        <div><ULink href="https://internalstack.com">https://internalstack.com</ULink></div>
+        <div class="mb-4"><ULink to="https://orderdive.com" target="_blank">https://orderdive.com</ULink></div>
+        <div><ULink to="https://internalstack.com" target="_blank">https://internalstack.com</ULink></div>
       </UCard>
       <UCard class="mb-6" variant="subtle">
         <template #header>
@@ -30,16 +30,9 @@
             Fullstack SaaS demo
           </div>
         </template>
-
-        <iframe
-          class="rounded-xl"
-          src="https://drive.google.com/file/d/1_TaVlnDrS0jMMqFA5FPt6e8VNqP5XjbF/preview"
-          title="YouTube video player"
-          frameborder="0"
-          allow="autoplay;"
-          allowfullscreen
-          style="aspect-ratio: 16/9;width: 400px;"
-        ></iframe>
+        <ULink to="https://drive.google.com/file/d/1_TaVlnDrS0jMMqFA5FPt6e8VNqP5XjbF" external target="_blank">
+          Quick video demo
+        </ULink>
       </UCard>
       <USeparator class="mb-1 w-[80%]"/>
       <USeparator class="mb-1 w-80"/>
