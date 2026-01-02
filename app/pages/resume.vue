@@ -38,7 +38,9 @@ const skillLists = [
       'Auth0',
       'Magic',
       'WorkOS',
+      'OpenAI',
       'Hanko',
+      'Microsoft Graph API',
     ],
   },
   {
@@ -54,6 +56,7 @@ const skillLists = [
       'SQLite',
       'PlanetScale',
       'Cloudflare D1',
+      'Postgres',
     ],
   },
   {
@@ -72,6 +75,10 @@ const skillLists = [
       'SCSS',
       'UnoCSS',
       'Bulma',
+      'Next.js',
+      'React.js',
+      'Shadcn',
+      'Tanstack Query',
     ],
   },
   {
@@ -127,6 +134,32 @@ const skillLists = [
   },
 ]
 const workHistory = [
+  {
+    companyName:
+      'Denari (funded AI startup) (2025-2025)',
+    role: 'Data Engineer (Contract)',
+    tldr: [
+      'Independently built a greenfield MVP for a new product line',
+      'Collaborated with technical and non-technical stakeholders',
+      'Automated data ingestion and processing pipeline',
+      'Created dashboard with full Microsoft Entra SSO',
+    ],
+    projects: [
+      {
+        projectName: 'Data ingestion pipeline MVP',
+        tools: ['TypeScript', 'React', 'Next.js', 'WorkOS', 'Microsoft Graph API'],
+        description: [
+          'I built them a data ingestion pipeline product that calculated average incoming lead response times across the organization.',
+          'Customer admins were able to sign in (SSO) via Microsoft Entra and grant access to their organization\'s inboxes.',
+          'From there the inbox data was ingested via the Microsoft Graph API, indexed, and dispatched to a work queue.',
+          'The work queue then calculated average response times, created sentiment scores, filtered out internal communication, and had the LLM ingest their inboxes, messages, and threads for categorization.',
+          'I provided regular demos of my progress and communicated with technical & non-technical stakeholders to explore the desired features and technical requirements.',
+          'The completed pipeline was able to filter and categorize leads, customer follow-ups, internal communication, and spam.',
+          'The Next.js/React dashboard integrated with WorkOS for internal stakeholder authentication and displayed visualizations of the organizations response stats.',
+        ],
+      },
+    ]
+  },
   {
     companyName:
       'InternalStack (2024 - Present) (Spinoff project from OrderDive)',
@@ -263,87 +296,90 @@ const workHistory = [
 const years = computed(() => new Date().getFullYear() - 2015)
 </script>
 <template>
-  <UContainer>
-    <div style="border-image: linear-gradient(to bottom, #27272a 0%, #27272a00 5%) 1;" class="border-[.5rem] sm:border-[1rem] p-[1rem] sm:p-[2rem]">
-      <div class="flex sm:flex-row flex-col xs:flex-nowrap items-center mb-16">
-        <img class="shadow-lg inline-block rounded-full sm:w-40 w-20 sm:mr-4" src="/image.png">
-        <div>
-          <div class="text-2xl font-bold text-center sm:text-left mb-4">
-            Alex Fong
-          </div>
-          <div class="mb-4 max-w-[28rem]">Fullstack software engineer with deep experience with Nuxt, Vue, TypeScript, and designing scalable systems from scratch.</div>
-          <div class="flex items-center">
-            <UIcon name="i-lucide-map-pin" class="mr-2" />
-            <div>Greater Madison Area, Wisconsin, USA</div>
-          </div>
-          <div class="flex items-center">
-            <UIcon name="i-lucide-hourglass" class="mr-2" />
-            <div>{{ years }} years of experience</div>
-          </div>
-          <div class="flex items-center">
-            <UIcon name="i-lucide-mail" class="mr-2" />
-            <a class="text-blue-400 underline" href="mailto:alex@birdlaw.dev">alex@birdlaw.dev</a>
-          </div>
-          <div class="flex items-center">
-            <UIcon name="i-lucide-github" class="mr-2" />
-            <a class="text-blue-400 underline" href="https://github.com/birdlavv">https://github.com/birdlavv</a>
-          </div>
-          <div class="flex items-center">
-            <UIcon name="i-lucide-code" class="mr-2" />
-            <a class="text-blue-400 underline" href="https://github.com/birdlavv/birdlaw-dev">View source on Github (This site was made with Nuxt 4 and Tailwind!)</a>
-          </div>
-          <div class="flex items-center">
-            <UIcon name="i-lucide-folder-open" class="mr-2" />
-            <NuxtLink class="text-blue-400 underline" to="/portfolio">View portfolio</NuxtLink>
-          </div>
+<UContainer>
+  <div style="border-image: linear-gradient(to bottom, #27272a 0%, #27272a00 5%) 1;"
+    class="border-[.5rem] sm:border-[1rem] p-[1rem] sm:p-[2rem]">
+    <div class="flex sm:flex-row flex-col xs:flex-nowrap items-center mb-16">
+      <img class="shadow-lg inline-block rounded-full sm:w-40 w-20 sm:mr-4" src="/image.png">
+      <div>
+        <div class="text-2xl font-bold text-center sm:text-left mb-4">
+          Alex Fong
         </div>
-      </div>
-      <div class="grid grid-cols-3">
-        <div class="lg:col-span-2 col-span-3">
-          <div class="mb-6 pb-6 mr-6 border-b-2 border-zinc-800">
-            Below is a non-exhaustive list of some of the notable projects I've worked on.
-            Each project description includes some technical decisions I made during the design and development process.
-          </div>
-          <div class="font-bold text-4xl mb-6">Work history</div>
-          <div v-for="job in workHistory" class="mb-16">
-            <Chip size="small" class="bg-indigo-600 mb-2">{{ job.role }}</Chip>
-            <div class="text-2xl font-bold mb-4">{{ job.companyName }}</div>
-            <div class="mb-6 border-white rounded-lg border p-6 mr-6">
-              <Chip size="small" class="bg-indigo-600 mb-2">Highlights</Chip>
-              <ul class="list-disc pl-4 mb-4">
-                <li v-for="item of job.tldr">{{ item }}</li>
-              </ul>
-            </div>
-            <div v-for="project in job.projects" class="mb-12 pl-8 border-l-2 border-zinc-800">
-              <div class="mb-2 text-xl font-bold">{{ project.projectName }}</div>
-              <div class="mb-2">
-                <Chip size="small" v-for="tool in project.tools" class="mr-1 mb-1 bg-zinc-800">
-                  {{ tool }}
-                </Chip>
-              </div>
-              <div class="lg:mr-16 mb-4">
-                <span v-for="chunk in project.description">
-                  <span v-if="typeof chunk === 'object' && 'href' in chunk" class="text-blue-500 underline mr-[.5rem]">
-                    <a class="inline-flex items-center" :href="chunk.href" target="_blank">
-                      <span class="mr-1">{{ chunk.href }}</span>
-                      <UIcon name="i-lucide-external-link"/>
-                    </a>
-                  </span>
-                  <span v-if="typeof chunk === 'string'" class="mr-[.5rem] ">{{ chunk }}</span>
-                </span>
-              </div>
-            </div>
-          </div>
+        <div class="mb-4 max-w-[28rem]">Fullstack software engineer with deep experience with Nuxt, Vue, TypeScript, and
+          designing scalable systems from scratch.</div>
+        <div class="flex items-center">
+          <UIcon name="i-lucide-map-pin" class="mr-2" />
+          <div>Greater Madison Area, Wisconsin, USA</div>
         </div>
-        <div class="lg:col-span-1 col-span-3">
-          <div v-for="skillList in skillLists" class="mb-4">
-            <div class="opacity-50 font-bold mb-2 text-sm">{{ skillList.listTitle }}</div>
-            <Chip size="regular" v-for="skill in skillList.listItems" class="mr-1 mb-1 bg-zinc-800">
-              {{ skill }}
-            </Chip>
-          </div>
+        <div class="flex items-center">
+          <UIcon name="i-lucide-hourglass" class="mr-2" />
+          <div>{{ years }} years of experience</div>
+        </div>
+        <div class="flex items-center">
+          <UIcon name="i-lucide-mail" class="mr-2" />
+          <a class="text-blue-400 underline" href="mailto:alex@birdlaw.dev">alex@birdlaw.dev</a>
+        </div>
+        <div class="flex items-center">
+          <UIcon name="i-lucide-github" class="mr-2" />
+          <a class="text-blue-400 underline" href="https://github.com/birdlavv">https://github.com/birdlavv</a>
+        </div>
+        <div class="flex items-center">
+          <UIcon name="i-lucide-code" class="mr-2" />
+          <a class="text-blue-400 underline" href="https://github.com/birdlavv/birdlaw-dev">View source on Github (This
+            site was made with Nuxt 4 and Tailwind!)</a>
+        </div>
+        <div class="flex items-center">
+          <UIcon name="i-lucide-folder-open" class="mr-2" />
+          <NuxtLink class="text-blue-400 underline" to="/portfolio">View portfolio</NuxtLink>
         </div>
       </div>
     </div>
-  </UContainer>
+    <div class="grid grid-cols-3">
+      <div class="lg:col-span-2 col-span-3">
+        <div class="mb-6 pb-6 mr-6 border-b-2 border-zinc-800">
+          Below is a non-exhaustive list of some of the notable projects I've worked on.
+          Each project description includes some technical decisions I made during the design and development process.
+        </div>
+        <div class="font-bold text-4xl mb-6">Work history</div>
+        <div v-for="job in workHistory" class="mb-16">
+          <Chip size="small" class="bg-indigo-600 mb-2">{{ job.role }}</Chip>
+          <div class="text-2xl font-bold mb-4">{{ job.companyName }}</div>
+          <div class="mb-6 border-white rounded-lg border p-6 mr-6">
+            <Chip size="small" class="bg-indigo-600 mb-2">Highlights</Chip>
+            <ul class="list-disc pl-4 mb-4">
+              <li v-for="item of job.tldr">{{ item }}</li>
+            </ul>
+          </div>
+          <div v-for="project in job.projects" class="mb-12 pl-8 border-l-2 border-zinc-800">
+            <div class="mb-2 text-xl font-bold">{{ project.projectName }}</div>
+            <div class="mb-2">
+              <Chip size="small" v-for="tool in project.tools" class="mr-1 mb-1 bg-zinc-800">
+                {{ tool }}
+              </Chip>
+            </div>
+            <div class="lg:mr-16 mb-4">
+              <span v-for="chunk in project.description">
+                <span v-if="typeof chunk === 'object' && 'href' in chunk" class="text-blue-500 underline mr-[.5rem]">
+                  <a class="inline-flex items-center" :href="chunk.href" target="_blank">
+                    <span class="mr-1">{{ chunk.href }}</span>
+                    <UIcon name="i-lucide-external-link" />
+                  </a>
+                </span>
+                <span v-if="typeof chunk === 'string'" class="mr-[.5rem] ">{{ chunk }}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-1 col-span-3">
+        <div v-for="skillList in skillLists" class="mb-4">
+          <div class="opacity-50 font-bold mb-2 text-sm">{{ skillList.listTitle }}</div>
+          <Chip size="regular" v-for="skill in skillList.listItems" class="mr-1 mb-1 bg-zinc-800">
+            {{ skill }}
+          </Chip>
+        </div>
+      </div>
+    </div>
+  </div>
+</UContainer>
 </template>
