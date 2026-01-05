@@ -14,6 +14,8 @@ const skillLists = [
       'Building Desktop Apps',
       'IoT',
       'Microservices',
+      'Unit testing',
+      'E2E testing',
       'Product Development',
       'Progressive Web Apps',
       'Prototyping',
@@ -21,6 +23,7 @@ const skillLists = [
       'SPA',
       'Jamstack',
       'Serverless',
+      'Building integrations',
       'Web Services',
       'Data Extraction',
       'eCommerce',
@@ -45,7 +48,7 @@ const skillLists = [
   },
   {
     listTitle: "Backend tools I've used",
-    listItems: ['Nuxt', 'TRPC', 'Express', 'Flask', 'Node'],
+    listItems: ['Nuxt', 'TRPC', 'Express', 'Flask', 'Node', 'Nitro'],
   },
   {
     listTitle: "Datastores I've used",
@@ -127,6 +130,7 @@ const skillLists = [
       'Terminal',
       'Jest',
       'Vitest',
+      'Playwright',
       'GitHub',
       'GitLab',
       'Sentry',
@@ -141,28 +145,28 @@ const workHistory = [
     tldr: [
       'Independently built a greenfield MVP for a new product line',
       'Collaborated with technical and non-technical stakeholders',
-      'Automated data ingestion and processing pipeline',
-      'Created dashboard with full Microsoft Entra SSO',
+      'Built a fully automated data ingestion and processing pipeline',
+      'Created data visualization dashboard with single sign-on via Microsoft Entra',
     ],
     projects: [
       {
         projectName: 'Data ingestion pipeline MVP',
         tools: ['TypeScript', 'React', 'Next.js', 'WorkOS', 'Microsoft Graph API'],
         description: [
-          'I built them a data ingestion pipeline product that calculated average incoming lead response times across the organization.',
-          'Customer admins were able to sign in (SSO) via Microsoft Entra and grant access to their organization\'s inboxes.',
-          'From there the inbox data was ingested via the Microsoft Graph API, indexed, and dispatched to a work queue.',
-          'The work queue then calculated average response times, created sentiment scores, filtered out internal communication, and had the LLM ingest their inboxes, messages, and threads for categorization.',
-          'I provided regular demos of my progress and communicated with technical & non-technical stakeholders to explore the desired features and technical requirements.',
-          'The completed pipeline was able to filter and categorize leads, customer follow-ups, internal communication, and spam.',
-          'The Next.js/React dashboard integrated with WorkOS for internal stakeholder authentication and displayed visualizations of the organizations response stats.',
+          `I built them a data ingestion pipeline product that calculated average incoming lead response times across the organization.
+          Customer admins were able to sign in (SSO) via Microsoft Entra and grant access to their organization\'s inboxes.
+          From there, the inbox data was ingested via the Microsoft Graph API, indexed, and dispatched to a work queue.
+          The work queue then calculated average response times, created sentiment scores, filtered out internal communication, and had the LLM ingest their inboxes, messages, and threads for categorization.
+          I provided regular demos of my progress and communicated with technical & non-technical stakeholders to explore the desired features and technical requirements.
+          The completed pipeline was able to filter and categorize leads, customer follow-ups, internal communication, and spam.
+          The Next.js/React dashboard integrated with WorkOS for internal stakeholder authentication and displayed data visualizations of the organization's response stats.`
         ],
       },
     ]
   },
   {
     companyName:
-      'InternalStack (2024 - Present) (Spinoff project from OrderDive)',
+      'InternalStack (2024 - 2025) (Spinoff project from OrderDive)',
     role: 'Software Engineer',
     tldr: [
       'Built a DX-focused SDK in TypeScript',
@@ -189,7 +193,9 @@ const workHistory = [
           'Cloudflare Workers',
         ],
         description: [
-          'I built an envelope encryption microservice. The microservice works similarly to AWS Secrets Manager. The spicy part of this project is that it runs entirely in the Cloudflare Worker runtime! The service automatically rotates the key encryption key (KEK) and the data encryption keys (DEKs) at regular intervals. To rotate a data encryption key, the data needs to be decrypted and re-encrypted using the new key. Keys are rotated in a scalable manner by adding rotation jobs to the Cloudflare queue, consuming the rotation job from the queue asynchronously, and storing the new data encryption key. This entire flow, from the queueing, the queue consumption, and the storage of the new key is all handled in a single Cloudflare Worker.',
+          'I built an experimental envelope encryption microservice. The microservice works similarly to AWS Secrets Manager. The spicy part of this project is that it runs entirely in the Cloudflare Worker runtime! The service automatically rotates the key encryption key (KEK) and the data encryption keys (DEKs) at regular intervals. To rotate a data encryption key, the data needs to be decrypted and re-encrypted using the new key. Keys are rotated in a scalable manner by adding rotation jobs to the Cloudflare queue, consuming the rotation job from the queue asynchronously, and storing the new data encryption key. This entire flow, from the queueing, the queue consumption, and the storage of the new key is all handled in a single Cloudflare Worker.',
+          'It\'s code can be viewed here: ',
+          { href: 'https://github.com/birdlavv/cloudflare-workers-envelope-encryption' }
         ],
       },
       {
@@ -296,41 +302,42 @@ const workHistory = [
 const years = computed(() => new Date().getFullYear() - 2015)
 </script>
 <template>
-<UContainer>
+<UContainer class="print:max-w-none print:w-full print:p-0 print:bg-white print:text-black">
   <div style="border-image: linear-gradient(to bottom, #27272a 0%, #27272a00 5%) 1;"
-    class="border-[.5rem] sm:border-[1rem] p-[1rem] sm:p-[2rem]">
-    <div class="flex sm:flex-row flex-col xs:flex-nowrap items-center mb-16">
-      <img class="shadow-lg inline-block rounded-full sm:w-40 w-20 sm:mr-4" src="/image.png">
+    class="border-[.5rem] sm:border-[1rem] p-[1rem] sm:p-[2rem] print:border-0 print:p-0 print:shadow-none print:[border-image:none]">
+    <div class="flex sm:flex-row flex-col xs:flex-nowrap items-center print:mb-2 mb-16 print:break-inside-avoid">
+      <img class="shadow-lg inline-block rounded-full sm:w-40 w-20 sm:mr-4 print:shadow-none" src="/image.png">
       <div>
-        <div class="text-2xl font-bold text-center sm:text-left mb-4">
+        <div class="print:text-lg text-2xl font-bold text-center sm:text-left mb-4">
           Alex Fong
         </div>
-        <div class="mb-4 max-w-[28rem]">Fullstack software engineer with deep experience with Nuxt, Vue, TypeScript, and
-          designing scalable systems from scratch.</div>
+        <div class="mb-4 max-w-[28rem]">Fullstack software engineer with deep experience in designing scalable systems
+          and processes from scratch.</div>
         <div class="flex items-center">
-          <UIcon name="i-lucide-map-pin" class="mr-2" />
+          <UIcon name="i-lucide-map-pin" class="mr-2 print:hidden" />
           <div>Greater Madison Area, Wisconsin, USA</div>
         </div>
         <div class="flex items-center">
-          <UIcon name="i-lucide-hourglass" class="mr-2" />
+          <UIcon name="i-lucide-hourglass" class="mr-2 print:hidden" />
           <div>{{ years }} years of experience</div>
         </div>
         <div class="flex items-center">
-          <UIcon name="i-lucide-mail" class="mr-2" />
-          <a class="text-blue-400 underline" href="mailto:alex@birdlaw.dev">alex@birdlaw.dev</a>
+          <UIcon name="i-lucide-mail" class="mr-2 print:hidden" />
+          <a class="text-blue-400 underline print:text-black" href="mailto:alex@birdlaw.dev">alex@birdlaw.dev</a>
         </div>
         <div class="flex items-center">
-          <UIcon name="i-lucide-github" class="mr-2" />
-          <a class="text-blue-400 underline" href="https://github.com/birdlavv">https://github.com/birdlavv</a>
+          <UIcon name="i-lucide-github" class="mr-2 print:hidden" />
+          <a class="text-blue-400 underline print:text-black"
+            href="https://github.com/birdlavv">https://github.com/birdlavv</a>
         </div>
-        <div class="flex items-center">
-          <UIcon name="i-lucide-code" class="mr-2" />
+        <div class="flex items-center print:hidden">
+          <UIcon name="i-lucide-code" class="mr-2 print:hidden" />
           <a class="text-blue-400 underline" href="https://github.com/birdlavv/birdlaw-dev">View source on Github (This
             site was made with Nuxt 4 and Tailwind!)</a>
         </div>
         <div class="flex items-center">
-          <UIcon name="i-lucide-folder-open" class="mr-2" />
-          <NuxtLink class="text-blue-400 underline" to="/portfolio">View portfolio</NuxtLink>
+          <UIcon name="i-lucide-folder-open" class="mr-2 print:hidden" />
+          <NuxtLink class="text-blue-400 underline print:hidden" to="/portfolio">View portfolio</NuxtLink>
         </div>
       </div>
     </div>
@@ -340,32 +347,39 @@ const years = computed(() => new Date().getFullYear() - 2015)
           Below is a non-exhaustive list of some of the notable projects I've worked on.
           Each project description includes some technical decisions I made during the design and development process.
         </div>
-        <div class="font-bold text-4xl mb-6">Work history</div>
+        <div class="print:text-2xl font-bold text-4xl mb-6">Work history</div>
         <div v-for="job in workHistory" class="mb-16">
-          <Chip size="small" class="bg-indigo-600 mb-2">{{ job.role }}</Chip>
-          <div class="text-2xl font-bold mb-4">{{ job.companyName }}</div>
-          <div class="mb-6 border-white rounded-lg border p-6 mr-6">
-            <Chip size="small" class="bg-indigo-600 mb-2">Highlights</Chip>
+          <div class="text-2xl font-bold mb-2">{{ job.companyName }}</div>
+          <Chip size="small"
+            class="mb-4 bg-indigo-600 print:bg-transparent print:text-black print:border print:border-black">{{ job.role
+            }}</Chip>
+          <div class="print:p-0 print:border-none mb-6 border-white rounded-lg border p-6 mr-6 print:break-inside-avoid print:border-black">
+            <Chip size="small"
+              variant="outline"
+              class="mb-2 bg-indigo-600 print:bg-transparent print:text-black print:border print:border-black">
+              Highlights</Chip>
             <ul class="list-disc pl-4 mb-4">
               <li v-for="item of job.tldr">{{ item }}</li>
             </ul>
           </div>
-          <div v-for="project in job.projects" class="mb-12 pl-8 border-l-2 border-zinc-800">
-            <div class="mb-2 text-xl font-bold">{{ project.projectName }}</div>
+          <div v-for="project in job.projects" class="mb-12 pl-8 border-l-2 border-zinc-800 print:border-black">
+            <div class="mb-2 print:text-sm text-xl font-bold">{{ project.projectName }}</div>
             <div class="mb-2">
-              <Chip size="small" v-for="tool in project.tools" class="mr-1 mb-1 bg-zinc-800">
+              <Chip size="small" v-for="tool in project.tools"
+                class="mr-1 mb-1 bg-zinc-800 print:bg-transparent print:text-black print:border print:border-black">
                 {{ tool }}
               </Chip>
             </div>
-            <div class="lg:mr-16 mb-4">
+            <div class="lg:mr-16 mb-4 print:mb-1 print:text-xs">
               <span v-for="chunk in project.description">
-                <span v-if="typeof chunk === 'object' && 'href' in chunk" class="text-blue-500 underline mr-[.5rem]">
-                  <a class="inline-flex items-center" :href="chunk.href" target="_blank">
+                <span v-if="typeof chunk === 'object' && 'href' in chunk"
+                  class="text-blue-500 underline mr-[.5rem] print:text-black">
+                  <a class="inline-flex items-center print:text-black" :href="chunk.href" target="_blank">
                     <span class="mr-1">{{ chunk.href }}</span>
-                    <UIcon name="i-lucide-external-link" />
+                    <UIcon name="i-lucide-external-link" class="print:hidden" />
                   </a>
                 </span>
-                <span v-if="typeof chunk === 'string'" class="mr-[.5rem] ">{{ chunk }}</span>
+                <span v-if="typeof chunk === 'string'" class="mr-[.5rem]">{{ chunk }}</span>
               </span>
             </div>
           </div>
@@ -374,7 +388,8 @@ const years = computed(() => new Date().getFullYear() - 2015)
       <div class="lg:col-span-1 col-span-3">
         <div v-for="skillList in skillLists" class="mb-4">
           <div class="opacity-50 font-bold mb-2 text-sm">{{ skillList.listTitle }}</div>
-          <Chip size="regular" v-for="skill in skillList.listItems" class="mr-1 mb-1 bg-zinc-800">
+          <Chip size="regular" v-for="skill in skillList.listItems"
+            class="mr-1 mb-1 bg-zinc-800 print:bg-transparent print:text-black print:border print:border-black">
             {{ skill }}
           </Chip>
         </div>
@@ -383,3 +398,10 @@ const years = computed(() => new Date().getFullYear() - 2015)
   </div>
 </UContainer>
 </template>
+
+<style>
+@page {
+  size: letter;
+  margin: 0.55in;
+}
+</style>

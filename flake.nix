@@ -20,6 +20,7 @@
           ];
 
           shellHook = ''
+            export TMPDIR=/tmp
             echo "Dev shell with node $(node -v), pnpm $(pnpm -v), biome"
           '';
         };
