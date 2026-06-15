@@ -9,9 +9,9 @@ export default defineAppConfig({
       variants: {
         active: {
           true: 'text-blue-400',
-          false: 'text-blue-400'
+          false: 'text-blue-400',
         },
-      }
-    }
+      },
+    },
   },
 })
