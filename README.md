@@ -1,10 +1,10 @@
 # Welcome to my personal site!
 
-This site was made using Nuxt 3 & TailwindCSS
+This site was made using Nuxt 4 & TailwindCSS
 
 Right now it's just my [résumé](https://birdlaw.dev/resume) but there may be more to come.
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Look at the [Nuxt 4 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
 
