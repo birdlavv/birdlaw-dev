@@ -30,6 +30,10 @@ const { data: resume } = await useFetch('/api/resume')
             <a class="text-blue-400 underline print:text-black" href="mailto:alex@birdlaw.dev">alex@birdlaw.dev</a>
           </div>
           <div class="flex items-center">
+            <UIcon name="i-lucide-file" class="mr-2 print:hidden" />
+            <a class="text-blue-400 underline print:text-black" href="/resume.pdf" download>Download PDF</a>
+          </div>
+          <div class="flex items-center">
             <UIcon name="i-lucide-github" class="mr-2 print:hidden" />
             <a class="text-blue-400 underline print:text-black"
               href="https://github.com/birdlavv">https://github.com/birdlavv</a>
@@ -46,28 +50,37 @@ const { data: resume } = await useFetch('/api/resume')
           </div>
         </div>
       </div>
-      <div v-if="resume" class="grid grid-cols-3">
+      <div v-if="resume" class="grid grid-cols-3 gap-8">
         <div class="lg:col-span-2 col-span-3">
           <div class="mb-6 pb-6 mr-6 border-b-2 border-zinc-800">
             Below is a non-exhaustive list of some of the notable projects I've worked on.
           </div>
           <div class="print:text-2xl font-bold text-4xl mb-6">Work history</div>
-          <div v-for="job in resume.workHistory" class="mb-4">
-            <div class="text-2xl font-bold mb-2">{{ job.companyName }}</div>
-            <Chip size="small"
-              class="mb-1 bg-indigo-600 mr-1 print:bg-transparent print:text-black print:border print:border-black">{{
-                job.role
-              }}</Chip>
-            <Chip size="small" v-for="tool in job.tools"
-              class="mr-1 mb-1 bg-zinc-800 print:bg-transparent print:text-black print:border print:border-black">
-              {{ tool }}
-            </Chip>
-            <div class="print:p-0 ml-4 mb-6 rounded-lg mr-6 print:break-inside-avoid print:border-black">
-              <ul class="list-disc pl-4 mb-4">
-                <li v-for="item of job.tldr">{{ item }}</li>
-              </ul>
-            </div>
-          </div>
+          <UTimeline :items="resume.workHistory" :ui="{
+            date: 'float-end ms-1',
+            title: 'print:text-black',
+            description: 'print:text-black print:ring-0 px-3 py-2 ring ring-default mt-2 rounded-md text-default'
+          }" class="w-full print:-ml-10">
+            <template #title="{ item }">
+              <span>{{ item.role }}</span>
+              <span class="font-normal text-muted">&nbsp;{{ item.companyName }}</span>
+            </template>
+
+            <template #date="{ item }">
+              <div v-if="item.start">{{ item.start }} - {{ item.end }}</div>
+            </template>
+            <template #description="{ item: job }">
+              <Chip size="small" v-for="tool in job.tools"
+                class="mr-1 mb-1 bg-zinc-800 print:bg-transparent print:text-black print:border print:border-black">
+                {{ tool }}
+              </Chip>
+              <div class="print:p-0 ml-4 mb-6 rounded-lg mr-6 print:break-inside-avoid print:border-black">
+                <ul class="list-disc pl-4 mb-4">
+                  <li v-for="item of job.tldr">{{ item }}</li>
+                </ul>
+              </div>
+            </template>
+          </UTimeline>
         </div>
         <div v-if="resume" class="lg:col-span-1 col-span-3">
           <div v-for="skillList in resume.skills" class="mb-4">

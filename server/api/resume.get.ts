@@ -135,8 +135,11 @@ const skills = [
 ]
 const workHistory = [
   {
-    companyName: 'Denari (funded AI startup) (2025-2025)',
+    companyName: 'Denari (funded AI startup)',
     role: 'Data Engineer (Contract)',
+    icon: 'i-lucide-bot',
+    start: '2025',
+    end: '2025',
     tldr: [
       'Independently built a greenfield MVP for a new product line',
       'Collaborated with technical and non-technical stakeholders',
@@ -154,8 +157,11 @@ const workHistory = [
     ],
   },
   {
-    companyName: 'InternalStack (2024 - 2025) (Spinoff project from OrderDive)',
+    companyName: 'InternalStack (Spinoff project from OrderDive)',
     role: 'Software Engineer',
+    icon: 'i-lucide-drill',
+    start: '2024',
+    end: '2025',
     tldr: [
       'Built a DX-focused SDK in TypeScript',
       'Built an (experimental) fully automated envelope encryption microservice',
@@ -175,8 +181,11 @@ const workHistory = [
     ],
   },
   {
-    companyName: 'CheetahBooking (2023 - 2024) (Co-founded)',
+    companyName: 'CheetahBooking (Co-founded)',
     role: 'Chief Technology Officer (CTO)',
+    icon: 'i-lucide-calendar-heart',
+    start: '2023',
+    end: '2024',
     tools: ['TypeScript', 'MySQL', 'Nuxt'],
     tldr: [
       'Built a B2B SaaS MVP on a very tiny budget',
@@ -187,7 +196,10 @@ const workHistory = [
     ],
   },
   {
-    companyName: 'OrderDive  (2017 - Present) (Founded)',
+    companyName: 'OrderDive (Founded)',
+    start: '2017',
+    icon: 'i-lucide-soup',
+    end: 'Present',
     role: 'Software Engineer',
     tools: [
       'TypeScript',
@@ -214,6 +226,7 @@ const workHistory = [
   {
     companyName: 'Personal projects',
     role: 'Software Engineer',
+    icon: 'i-lucide-notebook',
     tools: ['Tauri (Mobile & Desktop)', 'Golang', 'Rust', 'TypeScript'],
     tldr: [
       'Created & published an app built with React Native for cosplayers to trigger sound effects usings a concealed bluetooth device',
