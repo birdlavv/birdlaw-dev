@@ -8,14 +8,14 @@ const { data: resume } = await useFetch('/api/resume')
 <template>
   <UContainer class="print:max-w-none print:w-full print:p-0 print:bg-white print:text-black">
     <div style="border-image: linear-gradient(to bottom, #27272a 0%, #27272a00 5%) 1;"
-      class="border-[.5rem] sm:border-[1rem] p-[1rem] sm:p-[2rem] print:border-0 print:p-0 print:shadow-none print:[border-image:none]">
+      class="border-8 sm:border-[1rem] p-4 sm:p-8 print:border-0 print:p-0 print:shadow-none print:[border-image:none]">
       <div class="flex sm:flex-row flex-col xs:flex-nowrap items-center print:mb-2 mb-16 print:break-inside-avoid">
         <img class="shadow-lg inline-block rounded-full sm:w-40 w-20 sm:mr-4 print:shadow-none" src="/image.png">
         <div>
           <div class="print:text-lg text-2xl font-bold text-center sm:text-left mb-4">
             Alex Fong
           </div>
-          <div class="mb-4 max-w-[28rem]">Fullstack software engineer with deep experience in designing scalable systems
+          <div class="mb-4 max-w-md">Fullstack software engineer with deep experience in designing scalable systems
             and processes from scratch.</div>
           <div class="flex items-center">
             <UIcon name="i-lucide-map-pin" class="mr-2 print:hidden" />
@@ -29,7 +29,7 @@ const { data: resume } = await useFetch('/api/resume')
             <UIcon name="i-lucide-mail" class="mr-2 print:hidden" />
             <a class="text-blue-400 underline print:text-black" href="mailto:alex@birdlaw.dev">alex@birdlaw.dev</a>
           </div>
-          <div class="flex items-center">
+          <div class="flex items-center print:hidden">
             <UIcon name="i-lucide-file" class="mr-2 print:hidden" />
             <a class="text-blue-400 underline print:text-black" href="/resume.pdf" download>Download PDF</a>
           </div>
